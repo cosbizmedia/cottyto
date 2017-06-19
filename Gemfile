@@ -31,6 +31,8 @@ gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
 gem 'carrierwave', '~> 1.1'
 gem 'mini_magick', '~> 4.7', '>= 4.7.1'
+gem 'devise', '~> 4.3'
+
 
 
 
@@ -44,5 +46,6 @@ group :development do
   gem 'spring'
   gem 'better_errors', '~> 2.1', '>= 2.1.1'
   gem 'binding_of_caller', '~> 0.7.2'
+  gem 'annotate', '~> 2.7', '>= 2.7.2'
 end
 

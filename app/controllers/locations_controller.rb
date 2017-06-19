@@ -1,10 +1,11 @@
 class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /locations
   # GET /locations.json
   def index
-    @locations = Location.paginate(:page => params[:page], :per_page => 1)
+    @locations = Location.paginate(:page => params[:page], :per_page => 12)
     
   end
 
@@ -25,7 +26,7 @@ class LocationsController < ApplicationController
   # POST /locations
   # POST /locations.json
   def create
-    @location = Location.new(location_params)
+    @location = current_user.locations.new(location_params)
 
     respond_to do |format|
       if @location.save
