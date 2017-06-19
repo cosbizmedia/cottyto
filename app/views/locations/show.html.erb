@@ -10,5 +10,7 @@
   <%= @location.description %>
 </p>
 
+<%= image_tag(@location.picture.url, size: "250x150") if @location.picture? %>
+
 <%= link_to 'Edit', edit_location_path(@location) %> |
 <%= link_to 'Back', locations_path %>

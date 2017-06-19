@@ -1,4 +1,4 @@
-<%= form_for(@location) do |f| %>
+<%= form_for(@location, html: { multipart: true }) do |f| %>
   <% if @location.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@location.errors.count, "error") %> prohibited this location from being saved:</h2>
@@ -17,9 +17,22 @@
   </div>
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, rows: 10 %>
+  </div>
+  <div class="field">
+    <%= f.label :picture %><br>
+    <%= f.file_field :picture, accept: 'image/jpeg, image/gif, image/jpg, image/png' %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  $('#location_picture').bind('change', function() {
+    size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 3) {
+      alert('Maximum file size is 3MB. Please choose a smaller file');
+    }
+  });
+</script>
