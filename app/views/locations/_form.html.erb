@@ -1,38 +1,31 @@
-<%= form_for(@location, html: { multipart: true }) do |f| %>
-  <% if @location.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@location.errors.count, "error") %> prohibited this location from being saved:</h2>
+<%= render 'shared/errors', obj: @location %>
 
-      <ul>
-      <% @location.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+<div class="row">
+  <div class="well col-md-8 col-md-offset-2">
+    <%= form_for(@location, html: { multipart: true }) do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      
+      <%= f.label :description %>
+      <%= f.text_area :description, rows: 10 %>
+      
+      
+      <span class="picture">
+        <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+      </span>
+      
+      <%= f.submit(@location.new_record? ? 'Create Location' : 'Edit Location', class: "btn btn-success") %>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description, rows: 10 %>
-  </div>
-  <div class="field">
-    <%= f.label :picture %><br>
-    <%= f.file_field :picture, accept: 'image/jpeg, image/gif, image/jpg, image/png' %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
 
 <script type="text/javascript">
+  
   $('#location_picture').bind('change', function() {
     size_in_megabytes = this.files[0].size/1024/1024;
-    if (size_in_megabytes > 3) {
-      alert('Maximum file size is 3MB. Please choose a smaller file');
+    if (size_in_megabytes > 5) {
+      alert('Maximum file size is 5MB.Please choose a smaller file');
     }
   });
+  
 </script>

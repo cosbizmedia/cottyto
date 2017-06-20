@@ -19,12 +19,21 @@
 class Location < ActiveRecord::Base
 
   belongs_to :user
+  has_many :likes
 	
 	extend FriendlyId
   	friendly_id :name
 
-  	mount_uploader :picture, PictureUploader
-  	validate :picture_size
+  mount_uploader :picture, PictureUploader
+  validate :picture_size
+
+  def thumbs_up_total
+    self.likes.where(like: true).size
+  end
+
+  def thumbs_down_total
+    self.likes.where(like: false).size
+  end
 
   	private
 

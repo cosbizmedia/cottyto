@@ -1,0 +1,30 @@
+<div class="top-locations jumbotron center" style="background-color:#666;">
+  <div class="row">
+    <h4>Latest Locations</h4>
+    <hr>
+  </div>
+  
+  <div class="row">
+    <% Location.order(:created_at).reverse.take(6).each do |location| %>
+      <div class="col-md-2">
+        <%= link_to image_tag(location.picture.url, size: "150x150", class: "gravatar"), location_path(location) %>
+        <% if location.name.length > 17 %>
+          <h2><%= link_to location.name.first(14) + "...", location_path(location) %></h2>
+        <% else %>
+          <h2><%= link_to location.name.first(17), location_path(location) %></h2>
+        <% end %>
+        <div class="pull-right">
+        <%= link_to like_location_path(location, like: true), method: :post do %>
+          <i class="glyphicon glyphicon-thumbs-up"></i> &nbsp <%= location.thumbs_up_total %>
+        <% end %> &nbsp&nbsp&nbsp&nbsp
+        <%= link_to like_location_path(location, like: false), method: :post do %>
+          <i class="glyphicon glyphicon-thumbs-down"></i> &nbsp <%= location.thumbs_down_total %>
+        <% end %>
+      </div>
+      </div>
+      
+    <% end %>
+    
+  </div>
+  
+</div>

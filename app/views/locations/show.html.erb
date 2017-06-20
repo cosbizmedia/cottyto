@@ -1,16 +1,32 @@
-<p id="notice"><%= notice %></p>
+<%= render 'shared/page_title', title: @location.name %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @location.name %>
-</p>
+<div class="row">
+  <div class="col-md-4 pull-right center">
+    <p>
+      <%= image_tag(@location.picture.url, size: "250x150", class: "gravatar") if @location.picture? %>
+    </p>
+  </div>
+  <div class="col-md-8">
+      <%= link_to "Edit Location", edit_location_path(@location), class: "btn btn-success pull-right" if can? :update, @location %>
+    <h3><%= @location.description %></h3>
+    <div class="show_location">
+      <%= image_tag(@location.picture.url, size: "250x150", class: "gravatar") if @location.picture? %>
+    </div>
+    <div class="well">
+      <p>
+        <strong>Description: </strong>
+      </p>
+      <%= simple_format(@location.description) %>
+      <div class="pull-right">
+        <%= link_to like_location_path(@location, like: true), method: :post do %>
+          <i class="glyphicon glyphicon-thumbs-up"></i> &nbsp <%= @location.thumbs_up_total %>
+        <% end %> &nbsp&nbsp&nbsp&nbsp
+        <%= link_to like_location_path(@location, like: false), method: :post do %>
+          <i class="glyphicon glyphicon-thumbs-down"></i> &nbsp <%= @location.thumbs_down_total %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @location.description %>
-</p>
-
-<%= image_tag(@location.picture.url, size: "250x150") if @location.picture? %>
-
-<%= link_to 'Edit', edit_location_path(@location) if can? :update, @location %>
-<%= link_to 'Back', locations_path %>
+<h5><%= link_to "Return to Locations", locations_path, class: "btn btn-warning btn-small" %></h5>

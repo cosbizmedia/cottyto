@@ -1,0 +1,43 @@
+<%= render 'pages/jumbotron' %>
+
+<%= render 'pages/latest_locations' %>
+  
+<%= render 'pages/top_locations' %>
+
+
+<div class="row">
+  <h1>How does it work</h1><hr>
+  <div class="col-lg-4">
+    <h3 class="midrow">
+      View Locations as guest user
+    </h3>
+    <h2 class="left">
+      Browse and View Locations as a guest and sign up later
+    </h2>
+    <p><%= link_to "Browse Locations", locations_path, class: "btn btn-warning btn-small" %></p>
+  </div>
+  
+  <div class="col-lg-4">
+    <h3 class="midrow">
+      Sign in to your account
+    </h3>
+    <h2 class="left">
+      Add/update your location, create reviews, like/dislike locations and much more. Select your favorite
+      restaurants and food and let our platform do the magic
+    </h2>
+    <p><%= link_to "Log in to your account", new_user_session_path, class: "btn btn-warning btn-small" %></p>
+  </div>
+  
+  <div class="col-lg-4">
+    <h3 class="midrow">
+      We display you the best places for you
+    </h3>
+    <h2 class="left">
+      Based on your selections of restaurants and food types that you like, our platform will keep you updated
+      with locations that you might be interested in.
+    </h2>
+    <p><%= link_to "Browse Locations", "", class: "btn btn-warning btn-small" %></p>
+  </div>
+  
+</div>
+<hr>

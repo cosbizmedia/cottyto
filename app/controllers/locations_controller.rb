@@ -1,6 +1,6 @@
 class LocationsController < ApplicationController
   authorize_resource
-  before_action :set_location, only: [:show, :edit, :update, :destroy]
+  before_action :set_location, only: [:show, :edit, :update, :destroy, :like]
   before_action :authenticate_user!, except: [:index, :show]
 
   # GET /locations
@@ -61,6 +61,17 @@ class LocationsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to locations_url, notice: 'Location was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def like
+    like = Like.create(like: params[:like], user: current_user, location: @location)
+    if like.valid?
+      flash[:success] = "Your selection was succesfull"
+      redirect_to :back
+    else
+      flash[:danger] = "You can only like/dislike location once"
+      redirect_to :back
     end
   end
 
