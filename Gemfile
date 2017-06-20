@@ -32,6 +32,7 @@ gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
 gem 'carrierwave', '~> 1.1'
 gem 'mini_magick', '~> 4.7', '>= 4.7.1'
 gem 'devise', '~> 4.3'
+gem 'cancancan', '~> 2.0'
 
 
 

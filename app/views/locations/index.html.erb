@@ -5,12 +5,15 @@
     <%= will_paginate @location, renderer: BootstrapPagination::Rails %>
 
     <% @locations.each do |location| %>
-      <h1><%= link_to location.name, location %></h1>
+      <h1><%= link_to location.name, location if can? :read, location %></h1>
         <p><%= location.description %><p>
         <%= image_tag(location.picture.url, size: "250x150") if location.picture? %>
+        <%= link_to 'Delete', location, method: :delete, data: { confirm: 'Are you sure?' } if can? :destroy, location %>
         
     <% end %>
 
 <br>
 
+<% if can? :create, Location %>
 <%= link_to 'New Location', new_location_path %>
+<% end %>

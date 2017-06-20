@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170619215031) do
+ActiveRecord::Schema.define(version: 20170620115236) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -29,10 +29,9 @@ ActiveRecord::Schema.define(version: 20170619215031) do
   create_table "locations", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "slug"
-    t.string   "profile_image"
     t.string   "picture"
     t.integer  "user_id"
   end
@@ -53,6 +52,7 @@ ActiveRecord::Schema.define(version: 20170619215031) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "first_name"
+    t.string   "role"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

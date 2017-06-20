@@ -2,15 +2,14 @@
 #
 # Table name: locations
 #
-#  id            :integer          not null, primary key
-#  name          :string
-#  description   :text
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
-#  slug          :string
-#  profile_image :string
-#  picture       :string
-#  user_id       :integer
+#  id          :integer          not null, primary key
+#  name        :string
+#  description :text
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  slug        :string
+#  picture     :string
+#  user_id     :integer
 #
 # Indexes
 #

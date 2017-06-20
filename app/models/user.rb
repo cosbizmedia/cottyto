@@ -16,6 +16,7 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  first_name             :string
+#  role                   :string
 #
 # Indexes
 #
@@ -27,6 +28,18 @@ class User < ActiveRecord::Base
 	has_many :locations
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  	devise 	:database_authenticatable, :registerable,
+         	:recoverable, :rememberable, :trackable, :validatable
+
+    def admin?
+    	role == "admin"
+    end
+
+    def regular?
+    	role == "regular"
+    end
+
+    def guest?
+    	role == "guest"
+    end
 end
