@@ -6,6 +6,7 @@ gem 'rails', '4.2.6'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -25,14 +26,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 
 
-gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'friendly_id', '~> 5.2', '>= 5.2.1'
-gem 'will_paginate', '~> 3.1', '>= 3.1.6'
-gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
+gem 'bootstrap-will_paginate', '~> 1.0'
 gem 'carrierwave', '~> 1.1'
 gem 'mini_magick', '~> 4.7', '>= 4.7.1'
 gem 'devise', '~> 4.3'
 gem 'cancancan', '~> 2.0'
+gem 'simple_form', '~> 3.5'
 
 
 
