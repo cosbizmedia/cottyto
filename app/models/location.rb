@@ -20,9 +20,11 @@ class Location < ActiveRecord::Base
 
   belongs_to :user
   has_many :likes
+  has_many :location_cuisines
+  has_many :cuisines, through: :location_cuisines
 	
 	extend FriendlyId
-  	friendly_id :name
+  	friendly_id :name, use: :slugged
 
   mount_uploader :picture, PictureUploader
   validate :picture_size
