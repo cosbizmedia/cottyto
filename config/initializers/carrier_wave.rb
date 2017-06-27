@@ -6,7 +6,10 @@ if Rails.env.production?
 			:aws_secret_access_key => ENV['S3_SECRET_KEY']
 		}
 
-		storage = Fog::Storage.new(credentials.merge({:region => DEFAULT_REGION}))
+		storage = Fog::Storage.new(credentials)
+		storage.directories.each do |dir|
+    		puts "#{dir.key} (#{dir.location})"
+		end
 
 	end
 end
