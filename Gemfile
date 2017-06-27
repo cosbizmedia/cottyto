@@ -31,6 +31,7 @@ gem 'mini_magick', '~> 4.7', '>= 4.7.1'
 gem 'devise', '~> 4.3'
 gem 'cancancan', '~> 2.0'
 gem 'simple_form', '~> 3.5'
+gem 'fog', '~> 1.40'
 
 
 
