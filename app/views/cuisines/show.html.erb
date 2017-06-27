@@ -1,4 +1,4 @@
-<%= render 'shared/page_title', title: "All Locations" %>
+<%= render 'shared/page_title', title: "Cuisine type: " + @cuisine.name %>
 
 <ul class="nav nav-tabs">
   <li class="active">
@@ -15,9 +15,9 @@
   </li>
 </ul>
 
-<%= will_paginate %>
+<%= will_paginate @locations %>
 
-<% @locations.each do |location| %>
+<% @cuisine.locations.each do |location| %>
   <div class="row">
     
     <div class="col-md-2">
@@ -53,4 +53,4 @@
   <hr/>
 <% end %>
 
-<%= will_paginate %>
+<%= will_paginate @locations %>

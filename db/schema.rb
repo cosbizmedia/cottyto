@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20170627161424) do
   end
 
   create_table "location_cuisines", force: :cascade do |t|
-    t.integer "cuisinde_id"
+    t.integer "cuisine_id"
     t.integer "location_id"
   end
 

@@ -49,7 +49,7 @@ class PictureUploader < CarrierWave::Uploader::Base
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   def filename
-    "Book-a-table-at-#{model.name}.#{file.extension}" if original_filename.present?
+    "Book-a-table-at-#{model.slug}.#{file.extension}" if original_filename.present?
   end
 
 end

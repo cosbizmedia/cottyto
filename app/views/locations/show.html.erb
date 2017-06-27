@@ -8,10 +8,11 @@
   </div>
   <div class="col-md-8">
       <%= link_to "Edit Location", edit_location_path(@location), class: "btn btn-success pull-right" if can? :update, @location %>
-    <h3><%= @location.description %></h3>
+    
     <div class="show_location">
       <%= image_tag(@location.picture.url, size: "250x150", class: "gravatar") if @location.picture? %>
     </div>
+    <p>Cuisine: <%= render @location.cuisines %></p>
     <div class="well">
       <p>
         <strong>Description: </strong>

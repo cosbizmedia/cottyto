@@ -1,0 +1,15 @@
+<%= render 'shared/page_title', title: "Create New Cuisine" %>
+
+<%= render 'shared/errors', obj: @cuisine %>
+
+<div class="row">
+  <div class="well col-md-8 col-md-offset-2">
+    <%= simple_form_for @cuisine do |f| %>
+      
+      <%= f.input :name %>
+
+      
+      <%= f.submit 'New cuisine', class: "btn btn-success" %>
+    <% end %>
+  </div>
+</div>

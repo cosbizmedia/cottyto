@@ -5,10 +5,10 @@ class Ability
     user ||= User.new(role: "guest")
 
     if user.admin?
-        can :manage, Location
+        can :manage, :all
     elsif user.regular?
         can :manage, Location, user_id: user.id
     end
-    can :read, Location
+    can :read, :all
   end
 end
