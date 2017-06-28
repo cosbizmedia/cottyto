@@ -30,7 +30,9 @@
     <div class="col-lg-6 well">
       
       <h4><%= link_to location.name, location_path(location) %></h4>
-      <p>Cuisine: <%= render location.cuisines %></p>
+      <% if location.cuisines.any? %>
+        <p>Cuisine: <%= render location.cuisines %></p>
+      <% end %>
       <p>
         <span class="quiet"><small>Created: <%= time_ago_in_words(location.created_at) %> ago, </small></span>
         <span class="quiet"><small>Updated: <%= time_ago_in_words(location.updated_at) %> ago</small></span>
