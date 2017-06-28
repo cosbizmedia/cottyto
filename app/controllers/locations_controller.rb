@@ -86,6 +86,7 @@ class LocationsController < ApplicationController
       params.require(:location).permit(:name, 
                                       :description, 
                                       :picture,
-                                      cuisine_ids: [])
+                                      cuisine_ids: [],
+                                      category_ids: [])
     end
 end

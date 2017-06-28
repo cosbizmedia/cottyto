@@ -13,6 +13,7 @@
       <%= image_tag(@location.picture.url, size: "250x150", class: "gravatar") if @location.picture? %>
     </div>
     <p>Cuisine: <%= render @location.cuisines %></p>
+    <p>Location type: <%= render @location.categories %></p>
     <div class="well">
       <p>
         <strong>Description: </strong>

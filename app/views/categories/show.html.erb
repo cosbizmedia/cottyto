@@ -1,4 +1,4 @@
-<%= render 'shared/page_title', title: "Cuisine type: " + @cuisine.name %>
+<%= render 'shared/page_title', title: "Location type: " + @category.name %>
 
 <ul class="nav nav-tabs">
 <li><%= link_to 'All locations', locations_path %></li>
@@ -10,7 +10,7 @@
 
 <%= will_paginate @locations %>
 
-<% @cuisine.locations.each do |location| %>
+<% @category.locations.each do |location| %>
   <div class="row">
     
     <div class="col-md-2">
@@ -24,6 +24,7 @@
       
       <h4><%= link_to location.name, location_path(location) %></h4>
       <p>Cuisine: <%= render location.cuisines %></p>
+      <p>Location type: <%= render location.categories %></p>
       <p>
         <span class="quiet"><small>Created: <%= time_ago_in_words(location.created_at) %> ago, </small></span>
         <span class="quiet"><small>Updated: <%= time_ago_in_words(location.updated_at) %> ago</small></span>
