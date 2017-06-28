@@ -24,6 +24,7 @@ class Location < ActiveRecord::Base
   has_many :cuisines, through: :location_cuisines
   has_many :location_categories
   has_many :categories, through: :location_categories
+  has_many :reviews
 	
 	extend FriendlyId
   	friendly_id :name, use: :slugged

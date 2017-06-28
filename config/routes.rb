@@ -8,10 +8,12 @@ Rails.application.routes.draw do
   	resources :categories, only: [:new, :create, :show]
 
   devise_for :users
+  
   resources :locations do
-  	member do
-  		post 'like'
-  	end
+    resources :reviews
+  	   member do
+  		  post 'like'
+  	   end
   end
   
 end

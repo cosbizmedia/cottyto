@@ -1,0 +1,32 @@
+<div class="well">
+
+	<p>Overall Rating</p><div class="review-rating" data-score="<%= review.rating %>"></div><br>
+	<p>Food</p><div class="review-rating" data-score="<%= review.food %>"></div><br>
+	<p>Ambience</p><div class="review-rating" data-score="<%= review.ambience %>"></div><br>
+	<p>Service</p><div class="review-rating" data-score="<%= review.service %>"></div><br>
+	<p>Value</p><div class="review-rating" data-score="<%= review.value %>"></div><br>
+	
+
+	<% if review.created_at == review.updated_at %>
+		<p><strong>Created at:</strong> <%= review.created_at.strftime("%d/%m/%Y") %></p>
+	<% else %>
+		<p><strong>Updated at:</strong> <%= review.updated_at.strftime("%d/%m/%Y") %></p>
+	<% end %>
+
+	
+	<p><strong>Comment:</strong> <%= review.comment %></p>
+
+	<% if user_signed_in? %>
+		<% if review.user_id == current_user.id %>
+	
+		<div class="links btn-group">
+		
+			<%= link_to "Edit", edit_location_review_path(review.location, review), class: "btn btn-default" %>
+			<%= link_to "Delete", location_review_path(review.location, review), method: :delete, data: { confirm: "Are you Sure" }, class: "btn btn-danger" %>
+			
+		</div>
+	
+		<% end %>
+
+	<% end %>
+</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170628125019) do
+ActiveRecord::Schema.define(version: 20170628182735) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -63,6 +63,19 @@ ActiveRecord::Schema.define(version: 20170628125019) do
   end
 
   add_index "locations", ["slug"], name: "index_locations_on_slug", unique: true
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "rating"
+    t.integer  "food"
+    t.integer  "ambience"
+    t.integer  "service"
+    t.integer  "value"
+    t.text     "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "location_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

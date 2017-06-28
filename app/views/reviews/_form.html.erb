@@ -1,0 +1,63 @@
+<%= render 'shared/errors', obj: @review %>
+
+<div class="row">
+  <div class="well col-md-8 col-md-offset-2">
+
+<%= simple_form_for([@location, @location.reviews.build]) do |f| %>
+	<label>Food</label>
+	<div id="food-form">
+		
+	</div>
+
+	<label>Ambience</label>
+	<div id="ambience-form">
+		
+	</div>
+
+	<label>Service</label>
+	<div id="service-form">
+		
+	</div>
+
+	<label>Value</label>
+	<div id="value-form">
+	
+	</div>
+	<%= f.input :comment %>
+	<%= f.submit 'Add Review', class: "btn btn-success" %>
+<% end %>
+
+</div>
+</div>
+
+<script>
+	$('#food-form').raty('destroy');
+		$('#food-form').raty({
+			path: '/assets/',
+			scoreName: 'review[food]'
+		});
+</script>
+
+<script>
+	$('#ambience-form').raty('destroy');
+		$('#ambience-form').raty({
+			path: '/assets/',
+			scoreName: 'review[ambience]'
+		});
+</script>
+
+<script>
+	$('#service-form').raty('destroy');
+		$('#service-form').raty({
+			path: '/assets/',
+			scoreName: 'review[service]'
+		});
+</script>
+
+<script>
+	$('#value-form').raty('destroy');
+		$('#value-form').raty({
+			path: '/assets/',
+			scoreName: 'review[value]'
+		});
+</script>

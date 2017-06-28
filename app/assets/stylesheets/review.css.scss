@@ -1,0 +1,94 @@
+/* Reviews styles */
+
+.reviews {
+
+    margin-top: 40px;
+
+    h1 {
+        margin-top: 0;
+        font-weight: bold;
+        color: #21475E;
+        text-align: center;
+    }
+
+    h4 {
+        margin-top: 0;
+        font-weight: bold;
+        color: #21475E;
+        text-align: center;
+    }
+
+    .review {
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid gainsboro;
+
+        .review-comment {
+            font-size: 1.05em;
+            line-height: 1.5;
+
+        }
+
+    }
+
+    .new-review {
+        padding-top: 8px;
+    }
+
+}
+
+/* New/Edit review form styles */
+
+.new-review-form, .edit-review-form {
+
+    h1 {
+        margin-top: 0;
+    }
+
+    #rating-form {
+        margin-bottom: 15px;
+
+        label {
+            display: block;
+        }
+
+    }
+
+    #food-form {
+        margin-bottom: 15px;
+
+        label {
+            display: block;
+        }
+
+    }
+
+    #ambience-form {
+        margin-bottom: 15px;
+
+        label {
+            display: block;
+        }
+
+    }
+
+    #service-form {
+        margin-bottom: 15px;
+
+        label {
+            display: block;
+        }
+
+    }
+
+    #value-form {
+        margin-bottom: 15px;
+
+        label {
+            display: block;
+        }
+
+    }
+
+}
+
