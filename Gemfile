@@ -48,6 +48,7 @@ group :development do
   gem 'binding_of_caller', '~> 0.7.2'
   gem 'annotate', '~> 2.7', '>= 2.7.2'
   gem 'sqlite3'
+  gem 'seed_dump', '~> 3.2', '>= 3.2.4'
 end
 
 group :production do
